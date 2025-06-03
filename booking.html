@@ -1,50 +1,76 @@
-// Data Paket
-const paketData = [
-    {
-        nama: "Paket Standar",
-        harga: "Rp 30.000",
-        fitur: [
-            "Film 2D semua judul",
-            "Senin-Kamis",
-            "Jam tayang sebelum 17.00",
-            "Semua cabang bioskop"
-        ]
-    },
-    {
-        nama: "Paket Premium",
-        harga: "Rp 50.000",
-        fitur: [
-            "Film 2D + 1 Popcorn",
-            "Setiap hari termasuk weekend",
-            "Kursi premium",
-            "Free minum"
-        ]
-    }
-];
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesan Tiket - TIKET SAYA</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/logo.png">
+</head>
+<body>
+    <header>
+        <img src="images/logo.png" alt="Logo Tiket Saya - Nonton Bioskop Hemat" class="logo">
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="booking.html">Pesan Tiket</a>
+            <a href="#promo">Promo</a>
+            <a href="#kontak">Kontak</a>
+        </nav>
+    </header>
 
-// Fungsi menampilkan paket
-function tampilkanPaket() {
-    const container = document.querySelector('.paket-container');
-    
-    paketData.forEach(paket => {
-        const card = document.createElement('div');
-        card.className = 'paket-card';
-        
-        let fiturList = '';
-        paket.fitur.forEach(fitur => {
-            fiturList += `<li>${fitur}</li>`;
+    <section class="booking-form">
+        <h2>Form Pemesanan Tiket</h2>
+        <form id="formPemesanan">
+            <div class="form-group">
+                <label for="nama">Nama Lengkap:</label>
+                <input type="text" id="nama" name="nama" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="telepon">Nomor Telepon:</label>
+                <input type="tel" id="telepon" name="telepon" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="paket">Pilih Paket:</label>
+                <select id="paket" name="paket" required>
+                    <option value="">-- Pilih Paket --</option>
+                    <option value="reguler">Tiket Reguler - Rp 30.000</option>
+                    <option value="eksekutif">Tiket Eksekutif - Rp 50.000</option>
+                    <option value="keluarga">Tiket Keluarga - Rp 100.000</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="tanggal">Tanggal Nonton:</label>
+                <input type="date" id="tanggal" name="tanggal" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="jumlah">Jumlah Tiket:</label>
+                <input type="number" id="jumlah" name="jumlah" min="1" value="1" required>
+            </div>
+            
+            <button type="submit" class="cta-button">Pesan Tiket</button>
+        </form>
+    </section>
+
+    <footer id="kontak">
+        <p>© 2023 Tiket Saya. All rights reserved.</p>
+        <p>Email: darmabagus334@gmail.com | Telp: 085212258391</p>
+    </footer>
+
+    <script>
+        document.getElementById('formPemesanan').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Pemesanan berhasil! Kami akan mengirimkan detail tiket ke email Anda.');
+            this.reset();
         });
-        
-        card.innerHTML = `
-            <h3>${paket.nama}</h3>
-            <p class="harga">${paket.harga}</p>
-            <ul>${fiturList}</ul>
-            <a href="booking.html?paket=${encodeURIComponent(paket.nama)}" class="cta-button">Pilih Paket</a>
-        `;
-        
-        container.appendChild(card);
-    });
-}
-
-// Jalankan saat halaman dimuat
-window.onload = tampilkanPaket;
+    </script>
+</body>
+</html>
