@@ -16,7 +16,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    background-color: #ff7b00;
+    background-color: #ff0000;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
@@ -58,7 +58,7 @@ nav a:hover {
 
 .cta-button {
     display: inline-block;
-    background-color: #ff7b00;
+    background-color: #ff0000;
     color: white;
     padding: 0.8rem 1.5rem;
     border-radius: 5px;
@@ -68,7 +68,7 @@ nav a:hover {
 }
 
 .cta-button:hover {
-    background-color: #e56d00;
+    background-color: #e60000;
 }
 
 section {
@@ -78,7 +78,7 @@ section {
 section h2 {
     text-align: center;
     margin-bottom: 2rem;
-    color: #ff7b00;
+    color: #ff0000;
 }
 
 .paket-container {
@@ -101,7 +101,7 @@ section h2 {
 }
 
 .paket-card h3 {
-    color: #ff7b00;
+    color: hsl(0, 100%, 50%);
     margin-bottom: 1rem;
 }
 
